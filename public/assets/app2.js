@@ -8,13 +8,6 @@ var __commonJS = (cb, mod) =>
     );
   };
 import {
-  g as geral,
-  s as singlePjaxInstance,
-  m as manualModalClose,
-  c as commonjsGlobal,
-  a as getDefaultExportFromCjs,
-} from "./pjax.js";
-import {
   e as elementOuterSize,
   a as elementIndex,
   c as createElementIfNotDefined,
@@ -81,6 +74,11 @@ var require_app2 = __commonJS({
     //   };
     //   document.addEventListener("pjax:end", gtagEvent);
     // }
+    var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
+    function getDefaultExportFromCjs(x) {
+      return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
+    }
+    
     function toElementArray(selector) {
       if (typeof selector == "string") {
         return Array.from(document.querySelectorAll(selector));
@@ -1973,6 +1971,21 @@ var require_app2 = __commonJS({
         }, 1e3);
       }
     }
+    function manualModalClose() {      
+      document.querySelectorAll("modal-group.active", "modal-item.active").forEach((element) => {
+        document.dispatchEvent(new CustomEvent("modal:close"));
+        document.removeEventListener("keydown", this);
+        document.body.dataset.modalState = "leave";
+        element.classList.remove("active");
+        element.classList.add("leave");
+        setTimeout(() => {
+          element.classList.remove("leave");
+          delete document.body.dataset.modalState;
+          delete document.body.dataset.modal;
+          delete document.body.dataset.modalItem;
+        }, 600);
+      });
+    }
     /*!
      * ScrollToPlugin 3.12.5
      * https://gsap.com
@@ -2305,7 +2318,7 @@ var require_app2 = __commonJS({
           deactivateOnClickOutside: false,
           onClose: () => { },
           onComplete: () => { },
-          onActivate: (item) => { 
+          onActivate: (item) => {
             const element = document.querySelector(".header-info-list li.local-item.active");
             if (element) element.querySelector(".custom-close").click();
           },
@@ -8798,7 +8811,7 @@ var require_app2 = __commonJS({
           onActivate: (item) => {
             const element = document.querySelector(".header-info-list li.local-item.active");
             if (element) element.querySelector(".custom-close").click();
-           },
+          },
           onDeactivate: (item) => { },
         });
         let slider = element.querySelectorAll(
@@ -9023,7 +9036,7 @@ var require_app2 = __commonJS({
           onActivate: (item) => {
             const element = document.querySelector(".header-info-list li.local-item.active");
             if (element) element.querySelector(".custom-close").click();
-           },
+          },
           onDeactivate: (item) => { },
         });
         jsRunning = true;

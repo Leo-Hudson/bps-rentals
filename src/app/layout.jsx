@@ -1,4 +1,3 @@
-import "./globals.css";
 import Wrapper from "@/components/Layout/Wrapper";
 import "../../public/assets/utils.css";
 import "../../public/assets/app.css";
@@ -40,11 +39,28 @@ import { ExternalTriggers } from "@/components/Common/ExternalTriggers";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import RevalidateButton from "@/components/Common/RevalidateButton";
 import CustomBodyScripts from "@/Services/CustomBodyScripts";
+import localFont from 'next/font/local';
 
 export const metadata = {
   title: "Rent Event Furnishings - Blueprint Studios",
   robots: process.env.NEXT_PUBLIC_ENVIRONMENT !== "PRODUCTION" ? "noindex,nofollow" : null,
 };
+
+
+const MarrSansCondWeb = localFont({
+  src: '../assets/fonts/MarrSansCondWeb-Semibold.woff2',
+  display: 'swap',
+});
+
+const GTWalsheim = localFont({
+  src: '../assets/fonts/GTWalsheim-Medium.woff2',
+  display: 'swap',
+});
+
+const Icomoon = localFont({
+  src: '../assets/fonts/icomoon.woff',
+  display: 'swap',
+});
 
 export default async function RootLayout({ children }) {
   const [
@@ -92,7 +108,7 @@ export default async function RootLayout({ children }) {
   return (
     <>
       <CustomScripts />
-      <html lang="en">
+      <html lang="en" className={`${MarrSansCondWeb.className} ${GTWalsheim.className} ${Icomoon.className}`}>
         <body
           data-scroll-direction="initial"
           data-search-container

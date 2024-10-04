@@ -692,7 +692,7 @@ li.IMPORTANT.long-desc {
 .sorting-product:hover .product-title {
     text-overflow: unset !important;
     white-space: break-spaces !important;
-    overflow: visible!important;
+    overflow: visible !important;
 }
 
 .sorting-product .best-seller {
@@ -721,4 +721,90 @@ li.IMPORTANT.long-desc {
 
 .menu-my-account .list-menu-my-account .link-account .svg-custom img {
     width: 18px;
+}
+
+
+/* RESET PASSWORD */
+.reset-password-main {
+    min-height: 100vh;
+    width: 100vw;
+    padding: 24px;
+    padding-top: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset-password-form-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding-left: 7.4rem;
+    padding-right: 7.4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px rgba(13, 17, 228, 0.801) solid;
+
+    border-radius: 1.2rem;
+    overflow: hidden;
+    -webkit-transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -moz-transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -ms-transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition-delay: 0s;
+    /* height: 500px; */
+    width: 100%;
+    max-width: 600px;
+    gap: 3rem;
+}
+
+.reset-password-form-logos {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* align-items: center; */
+    /* width: 100%; */
+}
+
+/* .reset-password-form-logos .logo-formula-1 {
+  width: 130px;
+} */
+.reset-password-form-logos .logo-blueprint-rentals {
+    width: 130px;
+}
+
+@media only screen and (max-width: 600px) {
+    .reset-password-form-container {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+/* Custom css of save product icon */
+.hidden {
+    opacity: 0 !important;
+}
+
+.visible {
+    opacity: 1 !important;
+}
+
+.icon-bookmark {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.icon-bookmark-full {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+button:hover .icon-bookmark-full {
+    opacity: 1 !important;
 }
